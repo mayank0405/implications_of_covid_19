@@ -355,4 +355,5 @@ on  c1.WHO_Region = c2.WHO_Region;
 | South-East Asia       | 1835297         | 108                        |
 | Western Pacific       | 292428          | 38306                      |
 | Eastern Mediterranean | 1490744         | 12                         |
+
 ❗ **Insight -** <font size = "3">In the last query, we find the total number of confirmed cases and number of confirmed cases in the month of January. For this group by WHO_Region and then **sum ()** over *Confirmed*.</font>
