@@ -153,6 +153,7 @@ limit  10
 | Spain          | 28432  |
 | Peru           | 18418  |
 | Iran           | 15912  |
+
 ❗ **Insight -** <font size = "3"> Next, we find out the top 10 countries with maximum number of deaths.</font>
 
 ### Top 10 recovered countries:-
@@ -175,6 +176,7 @@ limit  10
 | Peru           | 272547    |
 | Iran           | 255144    |
 | Pakistan       | 241026    |
+
 ❗ **Insight -** <font size = "3"> Next, we find out the top 10 countries with maximum number of recovered cases.</font>
 
 ### Time Range:-
@@ -186,6 +188,7 @@ from  `sql_project.day_wise`
 | first_date | last_date  |
 |------------|------------|
 | 2020-01-22 | 2020-07-27 |
+
 ❗ **Insight -** <font size = "3">We try to find out the range of the given dataset i.e., the first date and the last date recorded. For this we use *min ()* and *max ()* functions over the Date attribute to get first and last dates respectively.</font>
 
 ### Top 5 cases in South-East Asia:-
@@ -204,6 +207,7 @@ limit  5
 | Indonesia      | 100303    | 4838   | 58173     |
 | Nepal          | 18752     | 48     | 13754     |
 | Maldives       | 3369      | 15     | 2547      |
+
 ❗ **Insight -** <font size = "3">For the South East Asia WHO Region, we find out the top 5 countries with Confirmed, Death and Recovered cases. For this we use ***limit 5***.</font>
 
 ### Percentage increase from January to July:-
@@ -236,6 +240,7 @@ on  c1.Country_region = c2.Country_region;
 | Thailand       | 92641.0             |
 | Nepal          | 6541057.0           |
 | India          | 1319265500.0        |
+
 ❗ **Insight -** <font size = "3">In this query, we have tried to find out the percentage increase in Confirmed cases from January 2020 to July 2020. We have used ***windows function cte, inner join and aggregate function group*** by and **sum ()**. We have used full_grouped table.</font>
 
 ### Month-wise number of cases:-
@@ -254,6 +259,7 @@ group  by  1;
 | 5     | 144990399 | 9609604  | 52876838  |
 | 6     | 246525787 | 13309053 | 116984268 |
 | 7     | 362895848 | 15709667 | 199594224 |
+
 ❗ **Insight -** <font size = "3">Here we have extracted number of confirmed, death and recovered cases for each month from 1st (January) to 7th (July). We do this using *sum ()* function.</font>
 
 ### Month on Month percentage increase:-
@@ -281,6 +287,7 @@ from  cte2
 | 4              | 128.72                         |
 | 5              | 70.03                          |
 | 6              | 47.2                           |
+
 ❗ **Insight -** <font size = "3">Here we find out the percentage increase in number of confirmed cases on a monthly basis. Since we have no data for 8th month so we can’t find out the percentage increase for the 7th month.</font>
 
 ### Per Day Percentage Increase in number of active cases:- 
@@ -302,6 +309,7 @@ limit  5;
 | 2020-01-24 | 941       | 1434           | 52.39                     |
 | 2020-01-25 | 1434      | 2118           | 47.7                      |
 | 2020-01-26 | 2118      | 2927           | 38.2                      |
+
 ❗ **Insight -** <font size = "3">Here, from the table *day_wise* we find out percentage change on daily basis. For simplicity we have used **round function** to round percentage to 2 decimal values. Also, since the data is large, we only display result for first 5 rows.</font>
 
 ### Percentages of Total Number of Confirmed Cases of countries in South East Asia. Ordered by Recovered Percentage to check where recovery is the most and do further analysis as where to send vaccines:- 
@@ -324,6 +332,7 @@ limit  5
 | Burma     | 350       | 1.71             | 83.43                | 14.86             |
 | Sri Lanka | 2805      | 0.39             | 75.61                | 23.99             |
 | Maldives  | 3369      | 0.45             | 75.6                 | 23.95             |
+
 ❗ **Insight -** <font size = "3">Here we can see that ***Thailand*** has the highest recovered percentage and required least number of vaccines. We have only shown 5 records for simplicity.</font>
 
 ### Representing WHO_Region, Total Confirmed Cases and Confirmed cases in January:- 
