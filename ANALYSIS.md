@@ -30,7 +30,7 @@
 
 ### Exploratory Analysis
 
-#### How many tables are present in the database? 
+#### :bangbang: How many tables are present in the database? 
 ````sql 
 select  table_catalog, table_schema, table_name
 from  `sql-projects-403804.sql_project.INFORMATION_SCHEMA.TABLES`
