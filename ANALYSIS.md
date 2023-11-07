@@ -44,7 +44,7 @@ from  `sql-projects-403804.sql_project.INFORMATION_SCHEMA.TABLES`
 
 ❗ **Insight -**  <font size = "3">The above table shows us the tables present in the dataset _sql_project_. There are three tables in the database:- _country_wise_latest_ , _day_wise_ and _full_grouped_. 
 
-#### How many columns and their datatypes are present in the tables? 
+#### :bangbang: How many columns and their datatypes are present in the tables? 
 ````sql 
 select  table_name, column_name, ordinal_position, data_type
 from  `sql-projects-403804.sql_project.INFORMATION_SCHEMA.COLUMNS`
@@ -110,7 +110,7 @@ where  table_name = 'full_grouped'
 
 ❗ **Insight -**  <font size = "3"> Here we use INFORMATION_SCHEMA.COLUMNS to get the column names, ordinal position and datatypes of each column for all the rows.</font>
 
-### Top 10 confirmed number of cases:-
+### :bangbang: Top 10 confirmed number of cases:-
 ````sql
 select  Country_Region, Confirmed
 from  `sql_project.country_wise_latest`
@@ -133,7 +133,7 @@ limit  10
 
 ❗ **Insight -** <font size = "3"> From the table country_wise_latest we find the top ten countries that have the highest number of confirmed covid cases.</font>
 
-### Top 10 deaths:-
+### :bangbang: Top 10 deaths:-
 ```` sql
 select  Country_Region, Deaths
 from  `sql_project.country_wise_latest`
@@ -156,7 +156,7 @@ limit  10
 
 ❗ **Insight -** <font size = "3"> Next, we find out the top 10 countries with maximum number of deaths.</font>
 
-### Top 10 recovered countries:-
+### :bangbang: Top 10 recovered countries:-
 ````sql
 select  Country_Region, Recovered
 from  `sql_project.country_wise_latest`
@@ -179,7 +179,7 @@ limit  10
 
 ❗ **Insight -** <font size = "3"> Next, we find out the top 10 countries with maximum number of recovered cases.</font>
 
-### Time Range:-
+### :bangbang: Time Range:-
 ````sql
 select  min(Date)  as  first_date, max(Date)  as  last_date
 from  `sql_project.day_wise`
@@ -191,7 +191,7 @@ from  `sql_project.day_wise`
 
 ❗ **Insight -** <font size = "3">We try to find out the range of the given dataset i.e., the first date and the last date recorded. For this we use *min ()* and *max ()* functions over the Date attribute to get first and last dates respectively.</font>
 
-### Top 5 cases in South-East Asia:-
+### :bangbang: Top 5 cases in South-East Asia:-
 ````sql
 select  Country_Region, Confirmed, Deaths, Recovered
 from  `sql_project.country_wise_latest`
@@ -210,7 +210,7 @@ limit  5
 
 ❗ **Insight -** <font size = "3">For the South East Asia WHO Region, we find out the top 5 countries with Confirmed, Death and Recovered cases. For this we use ***limit 5***.</font>
 
-### Percentage increase from January to July:-
+### :bangbang: Percentage increase from January to July:-
 ````sql
 with  cte1  as  (
 select  Country_Region, sum(Confirmed)  as  total_number_of_cases_in_January
@@ -243,7 +243,7 @@ on  c1.Country_region = c2.Country_region;
 
 ❗ **Insight -** <font size = "3">In this query, we have tried to find out the percentage increase in Confirmed cases from January 2020 to July 2020. We have used ***windows function cte, inner join and aggregate function group*** by and **sum ()**. We have used full_grouped table.</font>
 
-### Month-wise number of cases:-
+### :bangbang: Month-wise number of cases:-
 ````sql
 select  extract(month  from  Date)  as  month, sum(confirmed)  as  confirmed, sum(deaths)  as  deaths, sum(recovered)  as  recovered
 from  `sql_project.day_wise`
@@ -262,7 +262,7 @@ group  by  1;
 
 ❗ **Insight -** <font size = "3">Here we have extracted number of confirmed, death and recovered cases for each month from 1st (January) to 7th (July). We do this using *sum ()* function.</font>
 
-### Month on Month percentage increase:-
+### :bangbang: Month on Month percentage increase:-
 ````sql
 with  cte1  as(
 select  extract(month  from  Date)  as  month, sum(confirmed)  as  confirmed
@@ -290,7 +290,7 @@ from  cte2
 
 ❗ **Insight -** <font size = "3">Here we find out the percentage increase in number of confirmed cases on a monthly basis. Since we have no data for 8th month so we can’t find out the percentage increase for the 7th month.</font>
 
-### Per Day Percentage Increase in number of active cases:- 
+### :bangbang: Per Day Percentage Increase in number of active cases:- 
 ````sql
 with  cte  as  (
 select  Date, Confirmed, New_cases, Confirmed  +  lead(New_cases,1)  over(order  by  Date)  as  Next_Day_Cases
@@ -312,7 +312,7 @@ limit  5;
 
 ❗ **Insight -** <font size = "3">Here, from the table *day_wise* we find out percentage change on daily basis. For simplicity we have used **round function** to round percentage to 2 decimal values. Also, since the data is large, we only display result for first 5 rows.</font>
 
-### Percentages of Total Number of Confirmed Cases of countries in South East Asia. Ordered by Recovered Percentage to check where recovery is the most and do further analysis as where to send vaccines:- 
+### :bangbang: Percentages of Total Number of Confirmed Cases of countries in South East Asia. Ordered by Recovered Percentage to check where recovery is the most and do further analysis as where to send vaccines:- 
 ````sql
 select  Country, Confirmed, round((Deaths/Confirmed)*100,2)  as  Death_Percentage,
 round((Recovered/Confirmed)*100,2)  as  Recovered_Percentage, round((Active/Confirmed)*100,2)  as  Active_Percentage
@@ -335,7 +335,7 @@ limit  5
 
 ❗ **Insight -** <font size = "3">Here we can see that ***Thailand*** has the highest recovered percentage and required least number of vaccines. We have only shown 5 records for simplicity.</font>
 
-### Representing WHO_Region, Total Confirmed Cases and Confirmed cases in January:- 
+### :bangbang: Representing WHO_Region, Total Confirmed Cases and Confirmed cases in January:- 
 ````sql
 with  cte  as  (
 select  WHO_Region, sum(Confirmed)  as  Confirmed_cases
